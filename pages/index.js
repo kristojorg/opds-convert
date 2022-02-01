@@ -18,12 +18,12 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          To convert a document fetch:
+          To convert a document fetch: {""}
           <code className={styles.code}>api/[opds1Url]</code>. The URL can be an
           OPDS Entry or Feed; it will be automatically detected. The URL should
           be URL Encoded.
         </p>
-        <p>
+        <p className={styles.examples}>
           Examples:
           <ul>
             <li>
