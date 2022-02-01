@@ -45,8 +45,7 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.examples {
-  max-width: 100%;
-  overflow-wrap: break-word;
+.main li,
+.main code {
   line-height: 1.5;
 }

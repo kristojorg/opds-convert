@@ -17,7 +17,7 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">OPDS Convert!</a>
         </h1>
 
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", overflowWrap: "break-word" }}>
           <h2>Conversion API</h2>
           <p>
             To convert a document, fetch: {""}
