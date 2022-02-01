@@ -46,6 +46,16 @@ export default function Home() {
             </li>
           </ul>
         </p>
+        <p className={styles.description}>
+          Github Repo: {""}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/kristojorg/opds-convert"
+          >
+            kristojorg/opds-convert
+          </a>
+        </p>
       </main>
     </div>
   );
