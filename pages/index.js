@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -18,8 +19,32 @@ export default function Home() {
 
         <p className={styles.description}>
           To convert a document fetch:
-          <code className={styles.code}>api/[opds1Url]</code>. The URL can be to
-          either an OPDS Entry or a Feed; it will be automatically detected.
+          <code className={styles.code}>api/[opds1Url]</code>. The URL can be an
+          OPDS Entry or Feed; it will be automatically detected. The URL should
+          be URL Encoded.
+        </p>
+        <p>
+          Examples:
+          <ul>
+            <li>
+              <Link href="/api/https%3A%2F%2Fcirculation.openebooks.us%2FUSOEI%2Fworks%2FAxis%2520360%2520ID%2F0020394894">
+                OPDS Entry
+              </Link>
+              {" -> "}
+              <code className={styles.code}>
+                /api/https%3A%2F%2Fcirculation.openebooks.us%2FUSOEI%2Fworks%2FAxis%2520360%2520ID%2F0020394894
+              </code>
+            </li>
+            <li>
+              <Link href="/api/https%3A%2F%2Fcirculation.openebooks.us%2FUSOEI%2Fgroups%2F2%3Fentrypoint%3DBook">
+                OPDS Feed
+              </Link>
+              {" -> "}
+              <code className={styles.code}>
+                /api/https%3A%2F%2Fcirculation.openebooks.us%2FUSOEI%2Fgroups%2F2%3Fentrypoint%3DBook
+              </code>
+            </li>
+          </ul>
         </p>
       </main>
     </div>
