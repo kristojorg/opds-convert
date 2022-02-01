@@ -9,6 +9,7 @@ import {
   convertOpds1ToOpds2_EntryToPublication,
 } from "r2-opds-js/dist/es8-es2017/src/opds/converter";
 import { NextApiRequest, NextApiResponse } from "next";
+import convert from "lib/convert";
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,23 +27,6 @@ export default async function handler(
   }
 
   const xml = await response.text();
-
-  const xmlDom = new xmldom.DOMParser().parseFromString(xml);
-  if (!xmlDom || !xmlDom.documentElement) {
-    return res.status(500).json({ error: "Failed to instantiate XML Parser." });
-  }
-  const isEntry = xmlDom.documentElement.localName === "entry";
-
-  const result = isEntry ? entryToPub(xmlDom) : feedToFeed(xmlDom);
-  return res.status(200).json(result);
-}
-
-function entryToPub(xml: Document): OPDSPublication {
-  const opds1Entry = XML.deserialize<Entry>(xml, Entry);
-  return convertOpds1ToOpds2_EntryToPublication(opds1Entry);
-}
-
-function feedToFeed(xml: Document): OPDSFeed {
-  const opds1Feed = XML.deserialize<OPDS>(xml, OPDS);
-  return convertOpds1ToOpds2(opds1Feed);
+  const result = convert(xml);
+  res.status(200).json(result);
 }
